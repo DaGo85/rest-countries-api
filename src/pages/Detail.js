@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Arrow from "../assets/arrow-left-solid.svg";
 function Detail() {
   const location = useParams();
@@ -32,17 +32,24 @@ function Detail() {
 
   return (
     <>
-      <button>
-        <img src={Arrow} alt="Arrow" />
-        Back
-      </button>
+      <Link to="/">
+        <button>
+          <img src={Arrow} alt="Arrow" />
+          Back
+        </button>
+      </Link>
       {data[0] && (
         <>
           <img src={data[0].flags.svg} alt="country-flag" />
           <div>
             <h2>{data[0].name}</h2>
             <h5>Native Name: {data[0].nativeName}</h5>
-            <h5>Population: {data[0].population}</h5>
+            <h5>
+              Population:{" "}
+              {data[0].population
+                .toString()
+                .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
+            </h5>
             <h5>Region: {data[0].region}</h5>
             <h5>Sub Region: {data[0].subregion}</h5>
             <h5>Capital: {data[0].capital}</h5>

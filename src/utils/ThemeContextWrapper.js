@@ -9,13 +9,16 @@ export default function ThemeContextWrapper(props) {
   }
 
   useEffect(() => {
+    const headerElement = document.getElementById("header");
     switch (theme) {
       case themes.dark:
         document.body.classList.add("dark-content");
+        headerElement.classList.add("dark-content-header");
         break;
       case themes.light:
       default:
         document.body.classList.remove("dark-content");
+        headerElement.classList.remove("dark-content-header");
         break;
     }
   }, [theme]);

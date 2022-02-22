@@ -1,3 +1,12 @@
 body {
   font-family: "Nunito Sans", sans-serif;
+  background-color: white;
+}
+
+.dark-content {
+  background-color: green;
+}
+
+.dark-content-header {
+  background-color: aqua;
 }

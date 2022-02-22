@@ -7,7 +7,7 @@ function CountryGrid({ data }) {
       {data.map((country) => {
         if (country.name.common === "Germany") {
         }
-        return <CountryCard country={country} key={country.name.common} />;
+        return <CountryCard country={country} key={country.name} />;
       })}
     </>
   );
