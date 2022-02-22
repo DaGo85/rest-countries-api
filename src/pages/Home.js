@@ -5,17 +5,45 @@ import FilterSearch from "../components/filter-search/FilterSearch";
 
 function Home() {
   const [data, setData] = useState([]);
+  const [display, setDisplay] = useState("none");
+  const [region, setRegion] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+
+  const options = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
   useEffect(() => {
-    axios.get("https://restcountries.com/v3.1/all").then((response) => {
-      setData(response.data);
-    });
+    setFilteredData(data.filter((country) => country.region === region));
+  }, [region]);
+
+  function handleDisplay() {
+    if (display === "none") {
+      setDisplay("block");
+    } else {
+      setDisplay("none");
+    }
+  }
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://restcountries.com/v2/all?fields=name,population,region,capital,flags,tld,currencies,languages,borders"
+      )
+      .then((response) => {
+        setData(response.data);
+        console.log("test1" + JSON.stringify(response.data));
+      });
   }, []);
 
   return (
     <>
       <FilterSearch />
-      {data && <CountryGrid data={data} />}
+      <button onClick={() => handleDisplay()}>Filter by Region</button>
+      <div style={{ display: display }}>
+        {options.map((option) => {
+          return <div onClick={() => setRegion(option)}>{option}</div>;
+        })}
+      </div>
+      {data && <CountryGrid data={filteredData} />}
     </>
   );
 }
