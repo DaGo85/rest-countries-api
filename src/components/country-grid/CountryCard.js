@@ -1,10 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
+import "../../index.css"
 
 function CountryCard({ country }) {
   return (
     <>
-      <Link to={`/${country.name}`}>
+      <Link className="remove-deco" to={`/${country.name}`}>
         <img src={country.flags.svg} alt="country-flag" />
         <h2>{country.name}</h2>
         <h4>
@@ -17,7 +18,7 @@ function CountryCard({ country }) {
         <h4>Capital: {country.capital}</h4>
       </Link>
     </>
-  );
+  )
 }
 
-export default CountryCard;
+export default CountryCard

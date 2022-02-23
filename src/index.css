@@ -1,12 +1,250 @@
+/* General style */
+
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: white;
+  background-color: hsl(0, 0%, 98%);
+  margin: 0;
+  padding: 0;
 }
 
+header {
+  background-color: hsl(0, 0%, 100%);
+}
+
+h1 {
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.remove-deco {
+  text-decoration: none;
+  color: hsl(200, 15%, 8%);
+}
+
+label img {
+  filter: invert(52%);
+}
+
+/* General style end */
+
+/* Dark mode content */
+
 .dark-content {
-  background-color: green;
+  background-color: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
+}
+
+.dark-content label {
+  background-color: hsl(209, 23%, 22%);
+}
+
+.dark-content label input {
+  background-color: hsl(209, 23%, 22%);
+}
+
+.dark-content label img {
+  filter: invert(100%);
+}
+
+.dark-content label input::placeholder {
+  color: hsl(0, 0%, 100%);
+}
+
+.dark-content .remove-deco {
+  color: hsl(0, 0%, 100%);
 }
 
 .dark-content-header {
-  background-color: aqua;
+  background-color: hsl(209, 23%, 22%);
 }
+
+.dark-content-header img {
+  filter: invert(100%);
+}
+
+.dark-content .drop-down button {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+
+.dark-content .drop-down button img {
+  filter: invert(100%);
+}
+
+.dark-content .drop-down-content {
+  background-color: hsl(209, 23%, 22%);
+}
+
+/* Dark mode content end */
+
+/* Navbar content */
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3% 6%;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+#header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#header div:hover {
+  cursor: pointer;
+}
+
+#header img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+#header p {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 550px) {
+  #header {
+    padding: 3% 3%;
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  #header img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
+
+  #header p {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+}
+
+/* Navbar content end */
+
+/* Home content */
+
+/* Dropdown and Input control */
+
+span {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3% 5%;
+}
+
+/* Input field */
+
+label {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 700px;
+  padding: 15px 0px 15px 30px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+span label img {
+  width: 15px;
+  height: 15px;
+  margin-right: 25px;
+}
+
+input {
+  border: none;
+  width: 500px;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* Input field end */
+
+/* Dropdown */
+
+.drop-down button {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+  border: none;
+  padding: 3px 20px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4px;
+}
+
+.drop-down button p {
+  font-size: 14px;
+}
+
+span img {
+  width: 9px;
+}
+
+.drop-down {
+  position: relative;
+  display: inline-block;
+}
+
+.drop-down-content {
+  background-color: hsl(0, 0%, 100%);
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  width: 140px;
+  padding: 10px 20px;
+  font-weight: 300;
+}
+
+/* Dropdown end */
+
+@media (max-width: 375px) {
+  /* Dropdown and Input control */
+
+  span {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5% 5%;
+  }
+
+  /* Input field */
+
+  label {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  input {
+    width: 200px;
+  }
+
+  /* Input field end */
+
+  /* Dropdown */
+
+  /* Dropdown end */
+}
+/* Home content end */

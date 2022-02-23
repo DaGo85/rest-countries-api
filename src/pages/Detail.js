@@ -1,13 +1,13 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Arrow from "../assets/arrow-left-solid.svg";
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
+import Arrow from "../assets/arrow-left-solid.svg"
 function Detail() {
-  const location = useParams();
-  const path = location.nameId;
+  const location = useParams()
+  const path = location.nameId
 
-  const [borderData, setBorderData] = useState([]);
-  const [data, setData] = useState([]);
+  const [borderData, setBorderData] = useState([])
+  const [data, setData] = useState([])
 
   useEffect(() => {
     axios
@@ -15,20 +15,20 @@ function Detail() {
         `https://restcountries.com/v2/name/${path}?fields=name,nativeName,population,region,subregion,capital,flags,topLevelDomain,currencies,languages,borders`
       )
       .then((response) => {
-        setData(response.data);
-        console.log("hallowelt" + JSON.stringify(response.data));
-        const borderArray = response.data[0].borders;
+        setData(response.data)
+        console.log("hallowelt" + JSON.stringify(response.data))
+        const borderArray = response.data[0].borders
         axios
           .get(`https://restcountries.com/v3.1/alpha?codes=${borderArray}`)
           .then((response) => {
-            setBorderData(response.data);
-            console.log("first" + JSON.stringify(response.data[0].borders));
-          });
-        console.log("test1" + JSON.stringify(response.data));
-      });
-  }, [path]);
+            setBorderData(response.data)
+            console.log("first" + JSON.stringify(response.data[0].borders))
+          })
+        console.log("test1" + JSON.stringify(response.data))
+      })
+  }, [path])
 
-  useEffect(() => {}, [data[0]]);
+  useEffect(() => {}, [data[0]])
 
   return (
     <>
@@ -64,14 +64,14 @@ function Detail() {
                     <div key={borderCountry.name.common}>
                       {borderCountry.name.common}
                     </div>
-                  );
+                  )
                 })}
             </div>
           </div>
         </>
       )}
     </>
-  );
+  )
 }
 
-export default Detail;
+export default Detail
