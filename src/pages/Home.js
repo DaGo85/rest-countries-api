@@ -67,6 +67,7 @@ function Home() {
             {options.map((option) => {
               return (
                 <div
+                  className="mouse-hover"
                   onClick={() => {
                     setDisplay("none")
                     setRegion(option)

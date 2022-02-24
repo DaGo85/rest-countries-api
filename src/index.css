@@ -15,7 +15,8 @@ h1 {
   margin: 0;
 }
 
-button:hover {
+button:hover,
+.mouse-hover:hover {
   cursor: pointer;
 }
 
@@ -75,6 +76,10 @@ label img {
 }
 
 .dark-content .drop-down-content {
+  background-color: hsl(209, 23%, 22%);
+}
+
+.dark-content .country-card {
   background-color: hsl(209, 23%, 22%);
 }
 
@@ -157,10 +162,10 @@ label {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 700px;
+  width: 450px;
   padding: 15px 0px 15px 30px;
   border-radius: 4px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
 }
 
 span label img {
@@ -171,7 +176,7 @@ span label img {
 
 input {
   border: none;
-  width: 500px;
+  width: 300px;
 }
 
 input:focus {
@@ -192,7 +197,7 @@ input:focus {
   border: none;
   padding: 3px 20px;
   border-radius: 4px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
   margin-bottom: 4px;
 }
 
@@ -213,15 +218,16 @@ span img {
   background-color: hsl(0, 0%, 100%);
   position: absolute;
   border-radius: 4px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.05);
   width: 140px;
-  padding: 10px 20px;
+  padding: 14px 20px;
   font-weight: 300;
+  line-height: 160%;
 }
 
 /* Dropdown end */
 
-@media (max-width: 375px) {
+@media (max-width: 650px) {
   /* Dropdown and Input control */
 
   span {
@@ -245,6 +251,93 @@ span img {
 
   /* Dropdown */
 
+  .drop-down button {
+    margin-left: -20px;
+  }
+
+  .drop-down-content {
+    margin-left: -20px;
+  }
+
   /* Dropdown end */
 }
+
+/* Grid */
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 70px 50px;
+  margin: 0px 5%;
+  max-width: 1600px;
+}
+
+/* Gridcard */
+
+.country-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 8px;
+  padding-bottom: 40px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.country-card img {
+  overflow: hidden;
+  width: 280px;
+  object-fit: cover;
+  aspect-ratio: 3.3/2;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.country-card h2 {
+  font-size: 18px;
+  margin: 30px 30px 15px 30px;
+}
+
+.country-card h4 {
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0 0 5px 30px;
+}
+
+.country-card h4 b {
+  font-weight: 800;
+}
+
+/* Gridcard end */
+@media (max-width: 375px) {
+  .country-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 1400px) {
+  .country-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .country-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .country-grid {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0px 12%;
+  }
+}
+/* Grid end */
+
 /* Home content end */
+
+/* Detail content */
+
+/* Detail content end */
