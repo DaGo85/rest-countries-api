@@ -1,8 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import NavBar from "./components/navbar/NavBar"
-import "./index.css"
-import Detail from "./pages/Detail"
-import Home from "./pages/Home"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavBar from "./components/navbar/NavBar";
+import "./index.css";
+import Detail from "./pages/Detail";
+import Home from "./pages/Home";
+
+// Basic react router v6
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
         <Route path="/:nameId" element={<Detail />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

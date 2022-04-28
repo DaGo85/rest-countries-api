@@ -1,6 +1,8 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "../../index.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "../../index.css";
+
+// Single Card for the country grid
 
 function CountryCard({ country }) {
   return (
@@ -10,7 +12,8 @@ function CountryCard({ country }) {
           <img src={country.flags.png} alt="country-flag" />
           <h2>{country.name}</h2>
           <h4>
-            <b>Population:</b>{" "}
+            <b>Population: </b>
+            {/* RegEx for adding a dot every three digits */}
             {country.population
               .toString()
               .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}
@@ -24,7 +27,7 @@ function CountryCard({ country }) {
         </div>
       </Link>
     </>
-  )
+  );
 }
 
-export default CountryCard
+export default CountryCard;

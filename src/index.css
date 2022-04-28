@@ -322,6 +322,9 @@ span img {
 }
 
 /* Gridcard end */
+
+/* Grid control */
+
 @media (max-width: 375px) {
   .country-grid {
     grid-template-columns: repeat(1, 1fr);
@@ -346,6 +349,9 @@ span img {
     margin: 0px 12%;
   }
 }
+
+/* Grid control end */
+
 /* Grid end */
 
 /* Home content end */
@@ -459,6 +465,8 @@ span img {
   min-height: 30px;
 }
 
+/* Detail content control */
+
 @media (max-width: 1100px) {
   .detail-body {
     flex-direction: column;
@@ -509,5 +517,7 @@ span img {
     margin-bottom: 60px;
   }
 }
+
+/* Detail content control end */
 
 /* Detail content end */

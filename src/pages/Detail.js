@@ -1,22 +1,33 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
-import Arrow from "../assets/arrow-left-solid.svg"
-function Detail() {
-  const location = useParams()
-  const path = location.nameId
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import Arrow from "../assets/arrow-left-solid.svg";
 
-  const [borderData, setBorderData] = useState([])
-  const [data, setData] = useState([])
-  const [languagesString, setLanguagesString] = useState("")
+// Detail page for the SPA
+// Contains Flag, details and bordercountries links
+
+function Detail() {
+  // Gets information about the address bar
+
+  const location = useParams();
+  const path = location.nameId;
+
+  const [borderData, setBorderData] = useState([]);
+  const [data, setData] = useState([]);
+  const [languagesString, setLanguagesString] = useState("");
+
+  // Function for creating and formating information from JSON
 
   const getLanguages = (data) => {
-    let trimmedString = ""
+    let trimmedString = "";
     data[0].languages.map((language) => {
-      trimmedString += `${language.name}, `
-    })
-    setLanguagesString(trimmedString.slice(0, -2))
-  }
+      trimmedString += `${language.name}, `;
+    });
+    setLanguagesString(trimmedString.slice(0, -2));
+  };
+
+  // After path changes, this fetches new data
+  // Also new data for the border countries is fetched
 
   useEffect(() => {
     axios
@@ -24,27 +35,27 @@ function Detail() {
         `https://restcountries.com/v2/name/${path}?fields=name,nativeName,population,region,subregion,capital,flags,topLevelDomain,currencies,languages,borders`
       )
       .then((response) => {
-        setData(response.data)
-        getLanguages(response.data)
-        const borderArray = response.data[0].borders
+        setData(response.data);
+        getLanguages(response.data);
+        const borderArray = response.data[0].borders;
         axios
           .get(`https://restcountries.com/v3.1/alpha?codes=${borderArray}`)
           .then((response) => {
-            setBorderData(response.data)
-          })
-      })
-  }, [path])
-
-  useEffect(() => {}, [data[0]])
+            setBorderData(response.data);
+          });
+      });
+  }, [path]);
 
   return (
     <div className="detail">
+      {/* Back to home button */}
       <Link className="remove-deco" to="/">
         <button className="back-button">
           <img src={Arrow} alt="Arrow" />
           Back
         </button>
       </Link>
+      {/* After succesful fetching data, this renders the info panel */}
       {data[0] && (
         <div className="detail-body">
           <img src={data[0].flags.svg} alt="country-flag" />
@@ -79,7 +90,7 @@ function Detail() {
                 <h5>
                   <b>Currencies: </b> {data[0].currencies[0].name}
                 </h5>
-
+                {/* After succesful fetching data, this renders the spoken languages */}
                 <h5>
                   <b>Languages: </b> {languagesString && languagesString}
                 </h5>
@@ -89,6 +100,7 @@ function Detail() {
               <h5>
                 <b>Border Countries:</b>
               </h5>
+              {/* After succesful fetching data, this renders the border countries */}
               <div className="border-button-bar">
                 {borderData &&
                   borderData.map((borderCountry) => {
@@ -104,7 +116,7 @@ function Detail() {
                           {borderCountry.name.common}
                         </button>
                       </Link>
-                    )
+                    );
                   })}
               </div>
             </div>
@@ -112,7 +124,7 @@ function Detail() {
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default Detail
+export default Detail;

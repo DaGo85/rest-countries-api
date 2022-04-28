@@ -1,8 +1,10 @@
 import { createContext } from "react";
 
+// createContext for dark-mode
+
 export const themes = {
-  dark: "",
-  light: "white-content",
+  dark: "dark-content",
+  light: "",
 };
 
 export const ThemeContext = createContext({

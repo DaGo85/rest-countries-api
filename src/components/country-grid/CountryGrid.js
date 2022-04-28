@@ -1,17 +1,17 @@
-import React from "react"
-import CountryCard from "./CountryCard"
-import "../../index.css"
+import React from "react";
+import CountryCard from "./CountryCard";
+import "../../index.css";
+
+// Grid for countrycards
 
 function CountryGrid({ data }) {
   return (
     <div className="country-grid">
       {data.map((country) => {
-        if (country.name.common === "Germany") {
-        }
-        return <CountryCard country={country} key={country.name} />
+        return <CountryCard country={country} key={country.name} />;
       })}
     </div>
-  )
+  );
 }
 
-export default CountryGrid
+export default CountryGrid;
