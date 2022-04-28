@@ -7,7 +7,7 @@ import "../../index.css";
 function CountryCard({ country }) {
   return (
     <>
-      <Link className="remove-deco" to={`/${country.name}`}>
+      <Link className="remove-deco" to={`/${country.alpha3Code}`}>
         <div className="country-card">
           <img src={country.flags.png} alt="country-flag" />
           <h2>{country.name}</h2>

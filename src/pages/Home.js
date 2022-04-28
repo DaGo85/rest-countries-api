@@ -39,7 +39,7 @@ function Home() {
   useEffect(() => {
     axios
       .get(
-        "https://restcountries.com/v2/all?fields=name,population,region,capital,flags,tld,currencies,languages,borders"
+        "https://restcountries.com/v2/all?fields=name,population,region,capital,flags,tld,currencies,languages,borders,alpha3Code"
       )
       .then((response) => {
         setData(response.data);
@@ -79,6 +79,7 @@ function Home() {
             {options.map((option) => {
               return (
                 <div
+                  key={option}
                   className="mouse-hover"
                   onClick={() => {
                     setDisplay("none");
